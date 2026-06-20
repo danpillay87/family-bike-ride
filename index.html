@@ -9,55 +9,58 @@
 <style>
   :root{
     --ink:#23332b;--muted:#5d6f64;--cream:#fbf7ee;--paper:#fffdf8;
-    --green:#3f7d54;--green-d:#2c5d3d;--sky:#2f7fb0;--sky-d:#245f86;--sun:#f2b134;--rose:#d9745b;
+    --green:#3f7d54;--green-d:#2c5d3d;--sky:#2f7fb0;--sky-d:#245f86;--sun:#f2b134;
     --line:#e4ddcc;--shadow:0 6px 22px rgba(44,93,61,.10);
   }
   *{box-sizing:border-box}
   body{margin:0}
   .wrap{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     color:var(--ink);background:var(--cream);line-height:1.55;-webkit-font-smoothing:antialiased;padding:0 0 60px}
-  .inner{max-width:880px;margin:0 auto;padding:0 18px}
+  .inner{max-width:760px;margin:0 auto;padding:0 18px}
   h1,h2,h3{line-height:1.15;margin:0}
-  .hero{background:linear-gradient(160deg,#3f7d54,#244e34);color:#fff;padding:50px 20px 46px;text-align:center}
+  .hero{background:linear-gradient(160deg,#3f7d54,#244e34);color:#fff;padding:48px 20px 42px;text-align:center}
   .kicker{font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;color:#bfe6c9;font-weight:700}
-  .hero h1{font-size:clamp(1.9rem,5vw,2.9rem);font-weight:800;margin:12px auto 12px;max-width:17ch}
-  .hero p{font-size:clamp(1rem,2.3vw,1.18rem);color:#e7f4ea;max-width:40ch;margin:0 auto}
+  .hero h1{font-size:clamp(1.9rem,5vw,2.8rem);font-weight:800;margin:12px auto 12px;max-width:17ch}
+  .hero p{font-size:clamp(1rem,2.3vw,1.15rem);color:#e7f4ea;max-width:42ch;margin:0 auto}
 
-  section{padding:36px 0 4px}
+  section{padding:34px 0 4px}
   .eyebrow{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px}
-  h2{font-size:clamp(1.4rem,3.4vw,1.95rem);font-weight:800;color:var(--green-d);margin-bottom:14px}
+  h2{font-size:clamp(1.35rem,3.4vw,1.85rem);font-weight:800;color:var(--green-d);margin-bottom:14px}
 
-  .step{display:grid;grid-template-columns:64px 1fr;gap:16px;background:var(--paper);border:1px solid var(--line);
-    border-radius:16px;padding:18px 20px;box-shadow:var(--shadow);margin-bottom:14px}
-  .step .badge{text-align:center}
-  .step .badge .d{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
-  .step .badge .n{font-size:2rem;font-weight:800;color:var(--green);line-height:1}
-  .step h3{font-size:1.08rem;color:var(--green-d);margin-bottom:4px}
-  .step p{margin:0;font-size:.94rem;color:var(--muted)}
-  .step.solo .n{color:var(--sky)}
-  .step.solo h3{color:var(--sky-d)}
+  /* concept steps inline */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+  .stepc{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:15px 16px;box-shadow:var(--shadow)}
+  .stepc .n{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);font-weight:800}
+  .stepc h3{font-size:1rem;color:var(--green-d);margin:4px 0 4px}
+  .stepc p{margin:0;font-size:.88rem;color:var(--muted)}
 
-  .why{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
-  .card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
-  .card .ico{font-size:1.5rem}
-  .card h3{font-size:1rem;margin:9px 0 5px;color:var(--green-d)}
-  .card p{margin:0;font-size:.9rem;color:var(--muted)}
-
-  .fin{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
-  .opt{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:0;box-shadow:var(--shadow);overflow:hidden}
-  .opt .cap{padding:14px 16px;color:#fff;font-weight:800;font-size:1.05rem}
+  /* option cards (stacked, detailed) */
+  .opt{background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:20px}
+  .cap{padding:16px 20px;color:#fff}
   .opt.cheddar .cap{background:linear-gradient(150deg,#c46b2e,#9a4f1e)}
   .opt.sea .cap{background:linear-gradient(150deg,#3a90c0,#245f86)}
   .opt.cath .cap{background:linear-gradient(150deg,#7a6cae,#4f4380)}
-  .opt .cap .tag{display:block;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;opacity:.9;margin-top:2px}
-  .opt .body{padding:14px 16px}
-  .opt .body p{margin:0;font-size:.9rem;color:var(--muted)}
-  .opt .pick{display:inline-block;margin-top:10px;font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
-    color:#9a4f1e;background:#fbe9d6;border-radius:20px;padding:3px 10px}
+  .cap .name{font-size:1.4rem;font-weight:800;display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+  .cap .tag{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;font-weight:800;background:rgba(255,255,255,.22);border-radius:20px;padding:3px 9px}
+  .cap .ess{font-size:.95rem;opacity:.96;margin-top:5px}
+  .badges{display:flex;flex-wrap:wrap;gap:6px;padding:14px 20px 4px}
+  .badges span{background:#eef4ec;color:var(--green-d);border-radius:8px;padding:4px 10px;font-size:.76rem;font-weight:700}
+  .opt.sea .badges span{background:#e8f1f7;color:var(--sky-d)}
+  .opt.cath .badges span{background:#efecf7;color:#4f4380}
+  .detail{padding:8px 20px 18px}
+  .r{display:flex;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line)}
+  .r:last-child{border-bottom:0}
+  .r .k{flex:0 0 116px;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);font-weight:700;padding-top:2px}
+  .r .v{flex:1;font-size:.93rem}
+  .r .v b{color:var(--green-d)}
+  .opt.sea .r .v b{color:var(--sky-d)}
+  .opt.cath .r .v b{color:#4f4380}
+  .why{margin:6px 20px 18px 20px;font-size:.9rem;background:#fff6e9;border:1px solid #f3dcae;border-radius:12px;padding:10px 13px;color:#7a5a2a}
+  @media(max-width:540px){.r{flex-direction:column;gap:1px}.r .k{flex-basis:auto}}
 
-  .close{background:linear-gradient(160deg,#5aa9d6,#3f7d54);color:#fff;border-radius:22px;padding:32px 26px;text-align:center;margin-top:18px;box-shadow:var(--shadow)}
+  .close{background:linear-gradient(160deg,#5aa9d6,#3f7d54);color:#fff;border-radius:22px;padding:30px 24px;text-align:center;margin-top:10px;box-shadow:var(--shadow)}
   .close h2{color:#fff}
-  .close p{max-width:44ch;margin:8px auto 0;color:#eef7f1;font-size:1.02rem}
+  .close p{max-width:46ch;margin:8px auto 0;color:#eef7f1;font-size:1.02rem}
   .foot{text-align:center;color:var(--muted);font-size:.8rem;margin-top:26px}
 </style>
 </head>
@@ -66,76 +69,90 @@
   <div class="hero">
     <div class="kicker">An idea, for you 💚</div>
     <h1>One Big Adventure, One Family Finish</h1>
-    <p>I do the long, hard miles solo. You and the boys meet me. Then we all cross the line together.</p>
+    <p>I do the long, hard miles solo. You and the boys meet me. Then we all cross the line together — pick where that line is.</p>
   </div>
 
   <div class="inner">
 
     <section>
-      <div class="eyebrow">How it'd work</div>
+      <div class="eyebrow">How it works (whichever we pick)</div>
       <h2>The hard bit's mine. The lovely bit's ours.</h2>
-
-      <div class="step solo">
-        <div class="badge"><div class="d">Day</div><div class="n">1</div></div>
-        <div>
-          <h3>I ride solo &amp; rough it 🏕️</h3>
-          <p>I take on the big mileage on my own, at my own pace, and camp out for the night. The proper adventure bit — and you get a quiet evening at home.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="badge"><div class="d">Day</div><div class="n">2</div></div>
-        <div>
-          <h3>You &amp; the boys join me 🚗➡️🚲</h3>
-          <p>You drive down with Eli and Isaac and meet me partway — fresh, no early start, no big miles. We do a gentle, flat stretch together and spend the night somewhere lovely, all four of us.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="badge"><div class="d">Day</div><div class="n">3</div></div>
-        <div>
-          <h3>We finish together 🏁</h3>
-          <p>A short, flat, scenic roll to the finish line — all of us over it as a family. Then home in the car. A proper little treat to end on.</p>
-        </div>
+      <div class="steps">
+        <div class="stepc"><div class="n">Day 1 — me</div><h3>I ride solo &amp; camp 🏕️</h3><p>I take on the big mileage alone, at my own pace, and rough it for one night. You get a quiet evening at home.</p></div>
+        <div class="stepc"><div class="n">Day 2 — us</div><h3>You &amp; the boys join 🚗➡️🚲</h3><p>You drive down fresh, meet me partway, and we do a gentle flat stretch together to a comfy night, all four of us.</p></div>
+        <div class="stepc"><div class="n">Day 3 — finish</div><h3>Over the line together 🏁</h3><p>A short, scenic roll to the finish — all of us across it as a family. Then home in the car.</p></div>
       </div>
     </section>
 
     <section>
-      <div class="eyebrow">Why it's a win for you</div>
-      <h2>You get the good parts, none of the slog</h2>
-      <div class="why">
-        <div class="card"><div class="ico">😌</div><h3>Skip the hard miles</h3><p>No marathon days, no towing two kids for hours. You arrive fresh for the nice bit.</p></div>
-        <div class="card"><div class="ico">🛏️</div><h3>Only one night away</h3><p>The boys do a single, comfy night with us together — not roughing it.</p></div>
-        <div class="card"><div class="ico">🚗</div><h3>Easy logistics</h3><p>You've got the car, so it's already at the finish. No trains, no faff getting home.</p></div>
-        <div class="card"><div class="ico">🥰</div><h3>The bit that counts</h3><p>We do the finish — the memory the boys keep — all together.</p></div>
-      </div>
-    </section>
+      <div class="eyebrow">The choice is yours</div>
+      <h2>Three finishes — here's the full picture</h2>
 
-    <section>
-      <div class="eyebrow">The fun part — you choose</div>
-      <h2>Pick our finish line</h2>
-      <div class="fin">
-        <div class="opt cheddar">
-          <div class="cap">🧀 Cheddar Gorge<span class="tag">My lean</span></div>
-          <div class="body"><p>I ride out from Bath; you meet me and we roll the flat Strawberry Line into the gorge — cheese, ice cream, dramatic cliffs.</p><span class="pick">I'm leaning this one</span></div>
+      <!-- CHEDDAR -->
+      <div class="opt cheddar">
+        <div class="cap">
+          <div class="name">🧀 Cheddar Gorge <span class="tag">My lean</span></div>
+          <div class="ess">A jaw-dropping gorge finish — and the gentlest family ride of the three.</div>
         </div>
-        <div class="opt sea">
-          <div class="cap">🏖️ The Sea<span class="tag">From our door</span></div>
-          <div class="body"><p>I ride out from home down the old railway line; you join near Southwater and we finish on Shoreham beach. Paddle + chips.</p></div>
+        <div class="badges"><span>🚗 ~2 hrs to Somerset</span><span>🚲 ~10 flat miles for us</span><span>🛤️ traffic-free</span><span>🏁 the gorge</span></div>
+        <div class="detail">
+          <div class="r"><div class="k">My solo bit</div><div class="v">I ride out of <b>Bath</b> along the famous Bristol &amp; Bath railway path and on toward the Mendips — roughly <b>40 miles</b> — and camp near Cheddar.</div></div>
+          <div class="r"><div class="k">You join at</div><div class="v">Yatton or Axbridge — easy to drive to, park up and unload the bikes.</div></div>
+          <div class="r"><div class="k">Our ride together</div><div class="v">The <b>Strawberry Line</b>: ~10 miles of flat, traffic-free old railway through orchards and countryside. No hills at all.</div></div>
+          <div class="r"><div class="k">The finish</div><div class="v">Rolling straight into <b>Cheddar Gorge</b> — towering cliffs, caves and the cheese.</div></div>
+          <div class="r"><div class="k">Boys will love</div><div class="v">Caves, ice cream, real Cheddar cheese, and a flat path they can pedal bits of themselves.</div></div>
+          <div class="r"><div class="k">We'd sleep</div><div class="v">A family pub or glamping near Cheddar / Axbridge.</div></div>
+          <div class="r"><div class="k">There &amp; home</div><div class="v">~2 hrs' drive to Somerset. You've got the car, so home's sorted — handy, as Cheddar has no train station.</div></div>
         </div>
-        <div class="opt cath">
-          <div class="cap">⛪ Canterbury<span class="tag">Cathedral + coast</span></div>
-          <div class="body"><p>I ride a chunk of the old Pilgrims' Way; you join at the storybook village of Chilham and we finish at the cathedral, then oysters by the sea.</p></div>
-        </div>
+        <div class="why">💛 Why it's my lean: I get a proper big ride, you get the easiest family leg, and the boys get the most spectacular finish.</div>
       </div>
+
+      <!-- SEA -->
+      <div class="opt sea">
+        <div class="cap">
+          <div class="name">🏖️ The Sea <span class="tag">From our front door</span></div>
+          <div class="ess">No driving to a start line — I roll out from home; you join for the run to the beach.</div>
+        </div>
+        <div class="badges"><span>🚗 nothing to get to</span><span>🚲 ~12 flat miles for us</span><span>🛤️ traffic-free</span><span>🏁 the beach</span></div>
+        <div class="detail">
+          <div class="r"><div class="k">My solo bit</div><div class="v">I ride straight from <b>our door</b> down the Downs Link, an old railway line heading for the coast — roughly <b>30 miles</b> — and camp near Henfield.</div></div>
+          <div class="r"><div class="k">You join at</div><div class="v">Southwater, near Horsham — a short drive with easy parking.</div></div>
+          <div class="r"><div class="k">Our ride together</div><div class="v">Flat, traffic-free old railway down to the sea — ~12 gentle miles through fields and woods.</div></div>
+          <div class="r"><div class="k">The finish</div><div class="v"><b>Shoreham beach</b> — paddling, stone-skimming and chips. (We could carry on to Brighton if we're flying.)</div></div>
+          <div class="r"><div class="k">Boys will love</div><div class="v">Southwater's dinosaur playground 🦕, the ruined Bramber Castle to clamber on, then the beach.</div></div>
+          <div class="r"><div class="k">We'd sleep</div><div class="v">Glamping or a village B&amp;B around Henfield / Partridge Green.</div></div>
+          <div class="r"><div class="k">There &amp; home</div><div class="v">Nothing to get to — it starts at home. You drive down to join, and the car brings us all back from the coast.</div></div>
+        </div>
+        <div class="why">💛 The trade-off: closest and easiest of the three — but my solo day is the flattest, so least of a "challenge" for me (I'll cope 😄).</div>
+      </div>
+
+      <!-- CANTERBURY -->
+      <div class="opt cath">
+        <div class="cap">
+          <div class="name">⛪ Canterbury <span class="tag">Cathedral + coast</span></div>
+          <div class="ess">The romantic one — the ancient Pilgrims' Way, a cathedral, and oysters by the sea.</div>
+        </div>
+        <div class="badges"><span>🚗 ~2 hrs to Kent</span><span>🚲 ~8 + 8 gentle miles for us</span><span>🛤️ mostly traffic-free</span><span>🏁 cathedral + sea</span></div>
+        <div class="detail">
+          <div class="r"><div class="k">My solo bit</div><div class="v">I ride a real stretch of the ancient <b>Pilgrims' Way</b> across the Kent hills — roughly <b>50 miles</b>, the proper adventure — and camp en route.</div></div>
+          <div class="r"><div class="k">You join at</div><div class="v"><b>Chilham</b> — a gorgeous medieval village with a castle, square and tea room. Worth the trip on its own.</div></div>
+          <div class="r"><div class="k">Our ride together</div><div class="v">Gentle riverside path and quiet lanes down the Stour valley into Canterbury (~8 miles), then the <b>Crab &amp; Winkle Way</b> to the sea (~8 miles).</div></div>
+          <div class="r"><div class="k">The finish</div><div class="v"><b>Canterbury Cathedral</b> first, then a victory roll down to oysters and the beach at <b>Whitstable</b>.</div></div>
+          <div class="r"><div class="k">Boys will love</div><div class="v">Chilham castle, the giant cathedral, and fish &amp; chips on Whitstable seafront 🦪.</div></div>
+          <div class="r"><div class="k">We'd sleep</div><div class="v">The village pub at Chilham, or in Canterbury itself.</div></div>
+          <div class="r"><div class="k">There &amp; home</div><div class="v">~2 hrs to Kent by car or train; stations at Wye, Canterbury and Whitstable make it easy.</div></div>
+        </div>
+        <div class="why">💛 Why pick it: two finishes in one — a cathedral <i>and</i> the sea — plus storybook villages. The furthest to get to, though.</div>
+      </div>
+
     </section>
 
     <section>
       <div class="close">
         <h2>So… which finish?</h2>
-        <p>2 nights for me, just 1 (comfy) night for you and the boys, and a finish line we cross together. All you have to do is pick the prize — and say yes 💚</p>
+        <p>2 nights for me, just 1 comfy night for you and the boys, and a line we cross together. Tell me your pick — Cheddar, the sea, or Canterbury — and I'll sort the rest 💚</p>
       </div>
-      <p class="foot">Gentle, flat, traffic-free family riding · e-bikes do the work · Eli in the trailer, Isaac on the tag-along.<br>A Dan-made plan for Kim, Isaac &amp; Eli 🚲</p>
+      <p class="foot">Gentle, flat, traffic-free family riding · e-bikes do the work · little one in the trailer, big one on the tag-along.<br>A Dan-made plan for the family 🚲</p>
     </section>
 
   </div>
